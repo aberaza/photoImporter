@@ -1,6 +1,6 @@
 /*jshint esversion:6*/
 var assert = require('assert');
-var et = require('../index.js');
+var et = require('../lib/fslib.js');
 var fs = require('fs');
 // var  Promise = require("bluebird");
 
@@ -43,15 +43,16 @@ describe('isJPEG checks', function(){
 //     });
 // });
 
-describe('findNewFiles checks', function(){
+describe('getNewFiles checks', function(){
     describe('Returns list of new files only', function(){
 
-        it('Given an origin and destiny with existing files', 
-            () => et.findNewFiles(filesDir, exportDir).then(files => assert.ok(files.length === 6)));
+        //Origin folder has 7 files, but two already exist in destination folder.
+        it('Given an origin and destiny with existing files returns list of new ones', 
+            () => et.getNewFiles(filesDir, exportDir).then(files => assert.equal(files.length, 5)));
     });
 });
 
-describe('copyFolderMedia checks', function(){
+describe('copyFolder checks', function(){
     before(()=>{
         fs.readdirSync(outDir).forEach((file)=>{
             var filePath = outDir + "/" + file;
@@ -62,7 +63,7 @@ describe('copyFolderMedia checks', function(){
     });
     describe('Copy files to destiny', function(){
         it('Given valid origin and destiny it moves files from origin to destiny', function(){
-            et.copyFolderMedia(filesDir, outDir).then(()=>assert.ok(true));
+            et.copyFolder(filesDir, outDir).then(()=>assert.ok(true));
         });
     });
 });

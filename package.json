@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Read and Write exif information from images",
   "main": "index.js",
-  "bin" : "bin/index.js",
+  "bin": {
+    "photoImport": "./bin/index.js"
+  },
   "scripts": {
     "test": "mocha"
   },
@@ -11,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "cli-progress": "^1.4.1",
     "commander": "^2.9.0",
     "exif-reader": "^1.0.2",
     "fast-exif": "^1.0.1",
