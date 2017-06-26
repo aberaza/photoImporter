@@ -1,0 +1,30 @@
+{
+    "profiles" : [
+        {
+            "name" : "Default",
+            "description" : "Default profile",
+            "conditions" : [],
+            "destinationFolder" : "./",
+            "import" : "all"
+
+        },
+        {
+            "name" : "Aritz",
+            "description" : "Aritz main profile",
+            "conditions" : [
+                {
+                    "field" : "Make",
+                    "comparator" : "is",
+                    "value" : "FUJIFILM"
+                },
+                {
+                    "field" : "Model",
+                    "comparator" : "is",
+                    "value" : "X-T1"
+                }
+            ],
+            "destinationFolder" : "./FUJI",
+            "import" : "new"
+        }
+    ]
+}

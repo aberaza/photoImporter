@@ -1,0 +1,6 @@
+{
+    "unused" : true,
+    "predef": [ "-Promise" ],
+    "globals" : {
+    }
+}
